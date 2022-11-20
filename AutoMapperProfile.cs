@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Dto.Character;
 
 namespace _Net_Course
@@ -12,6 +8,7 @@ namespace _Net_Course
         {
             CreateMap<Character, GetCharacterDto>();
             CreateMap<AddCharacterDto, GetCharacterDto>();    
+            CreateMap<UpdateCharacterDto, Character>();    
         }
     }
 }
