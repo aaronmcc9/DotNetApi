@@ -7,7 +7,8 @@ namespace _Net_Course
         public AutoMapperProfile()
         {
             CreateMap<Character, GetCharacterDto>();
-            CreateMap<AddCharacterDto, GetCharacterDto>();    
+            CreateMap<AddCharacterDto, GetCharacterDto>();
+            CreateMap<AddCharacterDto, Character>();    
             CreateMap<UpdateCharacterDto, Character>();    
         }
     }
