@@ -4,6 +4,7 @@ using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace NetCourse.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20221121053631_UserCharacterRelationship")]
+    partial class UserCharacterRelationship
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,12 +52,12 @@ namespace NetCourse.Migrations
                     b.Property<int>("Strength")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Userid")
+                    b.Property<int?>("userid")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Userid");
+                    b.HasIndex("userid");
 
                     b.ToTable("Characters");
                 });
@@ -75,7 +78,7 @@ namespace NetCourse.Migrations
                         .IsRequired()
                         .HasColumnType("varbinary(max)");
 
-                    b.Property<string>("Username")
+                    b.Property<string>("Userneame")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -86,11 +89,11 @@ namespace NetCourse.Migrations
 
             modelBuilder.Entity("models.Character", b =>
                 {
-                    b.HasOne("models.User", "User")
+                    b.HasOne("models.User", "user")
                         .WithMany("Characters")
-                        .HasForeignKey("Userid");
+                        .HasForeignKey("userid");
 
-                    b.Navigation("User");
+                    b.Navigation("user");
                 });
 
             modelBuilder.Entity("models.User", b =>

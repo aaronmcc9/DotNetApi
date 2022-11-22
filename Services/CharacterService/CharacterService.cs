@@ -21,10 +21,12 @@ namespace Services.CharacterService
 
         }
 
-        public async Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters()
+        public async Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters(int userId)
         {
             var serviceResponse = new ServiceResponse<List<GetCharacterDto>>();
-            var dbCharacters = await _dataContext.Characters.ToListAsync();
+            var dbCharacters = await _dataContext.Characters
+                .Where(c => c.User.id == userId)
+                .ToListAsync();
             serviceResponse.Data = dbCharacters.Select(m => _mapper.Map<GetCharacterDto>(m)).ToList();
             return serviceResponse;
         }
