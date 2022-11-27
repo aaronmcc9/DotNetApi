@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Dto.Skill;
+using Dto.Weapon;
 
 namespace Dto.Character
 {
@@ -19,6 +21,8 @@ namespace Dto.Character
 
         public int Intelligence { get; set; }
 
-        public RpgClass Class  { get; set; }       
+        public RpgClass Class  { get; set; }
+        public GetWeaponDto Weapon { get; set; }
+        public List<GetSkillDto> Skills { get; set; }
     }
 }

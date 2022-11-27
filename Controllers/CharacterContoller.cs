@@ -26,9 +26,7 @@ namespace Controllers
         [HttpGet("GetAll")]
         public async Task<ActionResult<ServiceResponse<List<GetCharacterDto>>>> Get()
         {
-
-            int userId = int.Parse(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value);
-            return Ok(await _characterService.GetAllCharacters(userId));
+            return Ok(await _characterService.GetAllCharacters());
         }
 
         [HttpGet("{id}")]
@@ -45,7 +43,18 @@ namespace Controllers
             if (response.Data == null)
                 return NotFound(response);
 
-            return Ok(await _characterService.AddCharacter(newCharacter));
+            return Ok(response);
+        }
+
+         [HttpPost("skill")]
+        public async Task<ActionResult<ServiceResponse<GetCharacterDto>>> AddCharacterSkill(AddCharacterSkillDto newCharacter)
+        {
+            var response = await _characterService.AddCharacterSkill(newCharacter);
+
+            if (response.Data == null)
+                return NotFound(response);
+
+            return Ok(response);
         }
 
         [HttpPut]

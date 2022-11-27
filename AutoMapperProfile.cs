@@ -1,4 +1,6 @@
 using Dto.Character;
+using Dto.Skill;
+using Dto.Weapon;
 
 namespace _Net_Course
 {
@@ -10,6 +12,8 @@ namespace _Net_Course
             CreateMap<AddCharacterDto, GetCharacterDto>();
             CreateMap<AddCharacterDto, Character>();    
             CreateMap<UpdateCharacterDto, Character>();    
+            CreateMap<Weapon, GetWeaponDto>();
+            CreateMap<Skill, GetSkillDto>();
         }
     }
 }

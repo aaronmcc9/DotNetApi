@@ -59,7 +59,7 @@ namespace Data
             await _dataContext.SaveChangesAsync();
 
             //Id is generated after save
-            response.Data = user.id;
+            response.Data = user.Id;
             return response;
 
         }
@@ -91,7 +91,7 @@ namespace Data
 
         private string CreateToken(User user){
             List<Claim> claims = new List<Claim>{
-                new Claim(ClaimTypes.NameIdentifier, user.id.ToString()),
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.Name, user.Username)
             };
 
