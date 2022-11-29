@@ -31,5 +31,17 @@ namespace Controllers
         {
             return Ok(await _fightService.SkillAttack(request));
         }
+
+        [HttpPost]
+        public async Task<ActionResult<ServiceResponse<FightResultDto>>> SkillAttack(FightRequestDto request)
+        {
+            return Ok(await _fightService.Fight(request));
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<ServiceResponse<List<HighscoreDto>>>> GetHighscore()
+        {
+            return Ok(await _fightService.GetHighScore());
+        }
     }
 }

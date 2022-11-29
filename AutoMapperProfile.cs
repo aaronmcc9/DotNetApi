@@ -1,4 +1,5 @@
 using Dto.Character;
+using Dto.Fight;
 using Dto.Skill;
 using Dto.Weapon;
 
@@ -14,6 +15,7 @@ namespace _Net_Course
             CreateMap<UpdateCharacterDto, Character>();    
             CreateMap<Weapon, GetWeaponDto>();
             CreateMap<Skill, GetSkillDto>();
+            CreateMap<Character, HighscoreDto>();
         }
     }
 }
